@@ -12,11 +12,15 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/',(req, res)=>{
-  res.render('index.ejs', {name:'kyle'});
+  res.render('index.ejs', {name:'kyle'})
 });
 
 app.get('/login',(req, res)=>{
-  res.render('index.ejs', {name:'kyle'});
+  res.render('login.ejs')
+});
+
+app.get('/register',(req, res)=>{
+  res.render('register.ejs')
 });
 
 //app.use(bodyParser.urlencoded());

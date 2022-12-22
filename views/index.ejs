@@ -1,3 +1,143 @@
-<h1>
-  hi <%= name %>
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <title>Hello World!</title>
+
+    <!-- Meta tags for SEO and social sharing -->
+    <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
+    <meta
+      name="description"
+      content="A simple website, built with Glitch. Remix it to get your own."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Hello World!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
+    <meta
+      property="og:description"
+      content="A simple website, built with Glitch. Remix it to get your own."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/bootstrap.css" />
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Import the webpage's javascript file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="/bootstrap.js"></script>
+  </head>
+  <body>
+    <header class="mb-3">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid keep-this">
+          <a href=""
+            ><span class="navbar-brand h1 fw-bold fs-1 mb-0 site-title"
+              ><img
+                src="https://cdn.glitch.global/d2c04019-6e73-4df3-9e4c-c15fae03a0cf/logo-4.svg?v=1671585623015"
+                class="logo"
+                alt="Room2Gro Logo" /></span
+          ></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon" style="color: white"
+              ><!--&#9776;--></span
+            >
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item nav-title">
+                <a
+                  class="nav-link active text-muted"
+                  aria-current="page"
+                  href="/"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item nav-title">
+                <a class="nav-link active" href="/pages/grocery.html"
+                  >Grocery List</a
+                >
+              </li>
+              <li class="nav-item nav-title">
+                <a class="nav-link active" href="/pages/recipe.html"
+                  >Recipes</a
+                >
+              </li>
+              <li class="nav-item nav-title">
+                <a class="nav-link active" href="/pages/tips-tricks.html"
+                  >Tricks + Tips</a
+                >
+              </li>
+              <li class="nav-item nav-title">
+                <a class="nav-link active" href="/pages/news.html"
+                  >News</a
+                >
+              </li>
+              <li class="nav-item nav-title">
+                <a class="nav-link active" href="/pages/about.html"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item nav-title d-none">
+                <a class="nav-link active" href="/search.html">Search</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <h1>hi <%= name %></h1>
+    <div class="containerx text-center">
+    <div id="newtask">
+        <input type="text" placeholder="Add Tasks">
+        <button id="push">Add</button>
+    </div>
+    <div id="tasks"></div>
+</div>
+    <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
+    <footer class="footer">
+      <div></div>
+      <div class="text-center">
+        <a
+          class="btn--remix text-muted"
+          target="_top"
+          href="https://glitch.com/edit/#!/remix/glitch-hello-website"
+        >
+          <img
+            src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
+            alt=""
+          />
+          Remix on Glitch
+        </a>
+      </div>
+    </footer>
+  </body>
+  <script src="/script.js"></script>
+</html>

@@ -1,25 +1,206 @@
-/* a minimalist set of CSS resets */
+/* styles */
+/* called by your view template */
+.containerx {
+  width: 40%;
+  top: 50%;
+  left: 50%;
+  background: white;
+  border-radius: 10px;
+  min-width: 450px;
+  position: absolute;
+  min-height: 100px;
+  transform: translate(-50%, -50%);
+}
+#newtask {
+  position: relative;
+  padding: 30px 20px;
+}
+#newtask input {
+  width: 75%;
+  height: 45px;
+  padding: 12px;
+  color: #111111;
+  font-weight: 500;
+  position: relative;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  border: 2px solid #d1d3d4;
+}
 
-/* default to border-box */
-html {
-  box-sizing: border-box;
+#newtask input:focus {
+  outline: none;
+  border-color: #0d75ec;
+}
+#newtask button {
+  position: relative;
+  float: right;
+  font-weight: 500;
   font-size: 16px;
+  background-color: #0d75ec;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  width: 20%;
+  height: 45px;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+}
+#tasks {
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+  padding: 30px 20px;
+  margin-top: 10px;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+.task {
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #939697;
+  cursor: pointer;
+  background-color: #c5e1e6;
+  height: 50px;
+  margin-bottom: 8px;
+  padding: 5px 10px;
+  display: flex;
+}
+.task span {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+.task button {
+  background-color: #6583e5;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  height: 100%;
+  width: 40px;
+  border-radius: 5px;
+}
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-/* adjust typography defaults */
 body {
-  margin: 1rem;
-  font-family: sans-serif;
-  line-height: 1.5;
+  background-color: black;
+  height: 100vh;
 }
 
-/* images and videos max out at full width */
-img,
-video {
-  height: auto;
-  max-width: 100%;
+a:hover {
+  text-decoration: underline !important;
+  color: currentColor;
+}
+
+nav {
+  background-color: black;
+}
+
+footer {
+  position: fixed;
+  bottom:0;
+  padding: 10px;
+}
+
+.site-title img {
+  width: 90px;
+}
+
+.site-title,
+.nav-title {
+  filter: drop-shadow(16px 16px 10px black);
+}
+
+.nav-titlea : hover {
+  text-decoration: underline !important;
+  color: white;
+}
+
+.list-between {
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 0;
+  position: relative;
+  content: "-";
+  line-height: 0.8rem;
+  padding: 2px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background-color: currentColor;
+}
+
+.fixed-img {
+  max-height: 500px;
+  max-width: 300px;
+}
+
+.fixed-btn {
+  width: 50vw;
+  margin: 0.25rem;
+}
+
+.news-link {
+  color: #84a991;
+}
+
+section {
+  width: 80%;
+  padding: 15px;
+  margin: 20px auto;
+}
+
+.first,
+.fifth,
+.ninth {
+  background-color: #f244a4;
+}
+
+.second,
+.sixth,
+.tenth {
+  background-color: #2e29a6;
+}
+
+.third,
+.seventh {
+  background-color: #5a56bf;
+}
+
+.fourth,
+.eighth {
+  background-color: #f24c3d;
+}
+
+.title {
+  font-family: gothic-open-shaded, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+}
+
+#news {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.news-title {
+  font-size: 4em;
+}
+
+@media screen and (max-width: 600px) {
+  .pop-genre {
+    background-color: mediumpurple;
+  }
+  .pop-genre h2 {
+    color: black;
+  }
 }
