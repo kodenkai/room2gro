@@ -31,11 +31,17 @@ app.post('/register', async (req, res)=>{
   try {
     const hashedPassword = await bcrypt.hashed(req.body.password, 10);
     users.push({
-      id: Date.now().toString()
-    })
+      id: Date.now().toString(),
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password: hashedPassword
+    });
+    res.redirect('/login');
   } catch {
-    
+    res.redirect('/register');
   }
+  console.log(users);
 })
 app.post('/login', (req, res)=>{
   
