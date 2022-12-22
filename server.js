@@ -1,11 +1,18 @@
-const express = require("express");
-const app = express();
-//const bodyParser = require("body-parser");
+// init project
+var express = require('express');
+var ejs = require('ejs');
+var bodyParser = require('body-parser');
+var app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.set('view engine', 'ejs');
+app.engine('html', ejs.__express);
+app.set('views', './views');
+app.set('view engine', 'ejs');
 
-app.set('view-engine', 'ejs')
+app.use(express.static('public'));
 
 app.get('/',(req, res)=>{
-  res.render(index.ejs);
+  res.render('index.ejs');
 });
 
 //app.use(bodyParser.urlencoded());
@@ -20,4 +27,6 @@ app.get('/',(req, res)=>{
 
 // Routes go here
 
-app.listen(process.env.PORT || 4000, ()=>console.log("server on " + process.env.PORT));
+var listener = app.listen(process.env.PORT, function() {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
