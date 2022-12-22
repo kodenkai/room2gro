@@ -15,6 +15,10 @@ app.get('/',(req, res)=>{
   res.render('index.ejs', {name:'kyle'});
 });
 
+app.get('/login',(req, res)=>{
+  res.render('index.ejs', {name:'kyle'});
+});
+
 //app.use(bodyParser.urlencoded());
 //app.use(bodyParser.json());
 
