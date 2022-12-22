@@ -1,13 +1,19 @@
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser");
 
-app.get("/",(req, res)=>{
-  res.send("hello user");
+app.set('view-engine', 'ejs')
+
+app.get('/',(req, res)=>{
+  res.render(index.ejs);
 });
 
-app.use(bodyParser.urlencoded());
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded());
+//app.use(bodyParser.json());
+
+/*app.post("/post", (req, res)=>{
+  res.send({body:req.body});
+});*/
 
 //app.use(express.json());
 //app.use(express.static("public"));
