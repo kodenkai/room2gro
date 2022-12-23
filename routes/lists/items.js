@@ -4,9 +4,15 @@ const Item = require('../../models/item')
 const List = require('../../models/list')
 
 //all items
-router.get('/', async (req,res) => { 
-  res.send('All Items')
+router.get('../:id', async (req,res) => { 
+  res.send('All Items' + req.params.id)
 })
+
+router.get('../:id/edit', (req,res) => {
+  res.send('Edit List' + req.params.id)
+})
+
+router.put('../:id', (re))
 
 // New item
 router.get('/new', async (req,res) =>{
