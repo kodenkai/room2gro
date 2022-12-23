@@ -5,6 +5,9 @@ const listSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  currentList: {
+    type: Array,
+  },
   createdAt: {
     type: Date,
     required: true,
