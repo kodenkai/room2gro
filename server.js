@@ -29,8 +29,14 @@ app.get('/register',(req, res)=>{
 app.post('/register', async (req, res)=>{
   console.log(req.body.password);
   try {
-    const hashedPassword = await bcrypt.hashed(req.body.password, 10);
-    console.log(hashedPassword);
+    const hashedPassword = await new Promise((resolve, reject) => {
+    bcrypt.hash(req.body.password, 10, function(err, hash) {
+      if (err) reject(err)
+      resolve(hash)
+    });
+    })
+    //const hashedPassword = await bcrypt.hashed();
+    //console.log(hashedPassword);
     users.push({
       id: Date.now().toString(),
       first_name: req.body.first_name,
