@@ -20,9 +20,10 @@ initializePassport(passport,
 
 const users = [];
 // app.set('view engine', 'ejs');
-app.engine('html', ejs.__express);
-app.set('views', __dirname +  './views');
-app.set()
+app.engine('html', ejs.__express)
+app.set('views', __dirname +  './views')
+app.set('layout', 'layouts/layout')
+app.use(expressLayouts)
 app.set('view engine', 'ejs');
 app.use(flash())
 app.use(session({
