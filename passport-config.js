@@ -9,10 +9,10 @@ function initialize(passport, getUserByEmail, getUserById) {
     }
     try {
       const compareResults = await new Promise((resolve, reject) => {
-    bcrypt.compare(password,user.password, function(err, hash) {
+    bcrypt.compare(password,user.password, function(err, val) {
       
-      if (err) reject(err)
-      resolve(hash)
+      if (err) {reject(err)}
+      resolve(val)
     } else {
                    return done(null, user)
                    });

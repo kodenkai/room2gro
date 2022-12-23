@@ -50,7 +50,7 @@ app.post('/register', async (req, res)=>{
   try {
     const hashedPassword = await new Promise((resolve, reject) => {
     bcrypt.hash(req.body.password, 10, function(err, hash) {
-      if (err) reject(err)
+      if (err) reject(err);
       resolve(hash)
     });
     })
