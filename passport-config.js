@@ -2,7 +2,9 @@ const localStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt');
 
 function initialize(passport, getUserByEmail, getUserById) {
+
   const authentication = async (email, password, done) => {
+    console.log('hi')
     const user = getUserByEmail(email);
     if (user== null) {
       return done(null, false, {message: 'No user with that email'});
@@ -14,6 +16,7 @@ function initialize(passport, getUserByEmail, getUserById) {
       resolve(val)
     });
     })
+      console.log(compareResults)
       if (compareResults) {
         return done(null, user);
       } else {
