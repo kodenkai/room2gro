@@ -1,15 +1,15 @@
-if (process.env.NODE_ENV != 'production') {
+/*if (process.env.NODE_ENV != 'production') {
   require('dotenv').config
-}
+}*/
 // init project
 const express = require('express')
-const ejs = require('ejs')
+//const ejs = require('ejs')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 
 const indexRouter = require('./routes/index')
 
-const bcrypt = require('bcrypt');
+/*const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
@@ -18,14 +18,13 @@ initializePassport(passport,
                    email => users.find(user => user.email === email),
                   id => users.find(user => user.id === id));
 
-const users = [];
-// app.set('view engine', 'ejs');
-app.engine('html', ejs.__express)
-app.set('views', __dirname +  './views')
+const users = [];*/
+app.set('view engine', 'ejs');
+//app.engine('html', ejs.__express)
+app.set('views', __dirname +  '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
-app.set('view engine', 'ejs');
-app.use(flash())
+/*app.use(flash())
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -36,11 +35,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(express.urlencoded({extended: false}));
-app.use(express.static('public'));
+app.use(express.static('public'));*/
 
 app.use('/', indexRouter);
 
-app.get('/login',(req, res)=>{
+/*app.get('/login',(req, res)=>{
   res.render('login.ejs')
 });
 
