@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const List = require('../models/list')
 
 router.get('/', (req,res) =>{
   res.render('lists/index')
@@ -7,7 +8,7 @@ router.get('/', (req,res) =>{
 })
 
 router.get('/new', (req,res) =>{
-  res.render('lists/new')
+  res.render('lists/new', {list: new List() })
 })
   
 router.post('/', (req,res)=> {
