@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV != 'production') {
+  require('dotenv').config
+}
 // init project
 var express = require('express');
 var ejs = require('ejs');
@@ -18,8 +21,13 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use(flash())
 app.use(session({
-  secret: process.env.SESSION_SECRET;
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
 }));
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
@@ -60,9 +68,11 @@ app.post('/register', async (req, res)=>{
   }
   console.log(users);
 })
-app.post('/login', (req, res)=>{
-  
-})
+app.post('/login', passport.authenticate('local'), {
+         successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+         })
 
 //app.use(bodyParser.urlencoded());
 //app.use(bodyParser.json());
