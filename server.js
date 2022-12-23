@@ -31,7 +31,8 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: false }))
 
 
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+//mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://firstuser00:Ont3I8T56jaFLpxJ@cluster0.fd3woog.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', error => console.error(error));
 db.once('open', () => console.log('Connected to Mongoose'));
