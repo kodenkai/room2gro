@@ -4,7 +4,7 @@ const Item = require('../../models/item')
 const List = require('../../models/list')
 
 //all items
-router.get('../:id', async (req,res) => { 
+router.get('../:id',  (req,res) => { 
   res.send('Show Items ' + req.params.id)
 })
 
