@@ -69,20 +69,18 @@ app.post('/register', async (req, res)=>{
 })
 
 app.post('/login', function(req, res) {
-  passport.authenticate('local', function(err, user, info) {
-    if (err) {
-      // handle the error
-    } else if (!user) {
-      // redirect to the failureRedirect path
-      {failureRedirect: '/login',
-      failureFlash = true};
-      
-    } else {
-      // redirect to the successRedirect path
-      {successRedirect: '/'};
-    }
-  })(req, res);
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  });
 });
+
+/*app.post('/login', passport.authenticate('local'), {
+         successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+         })*/
 
 //app.use(bodyParser.urlencoded());
 //app.use(bodyParser.json());
