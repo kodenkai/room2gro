@@ -21,7 +21,8 @@
     "express-session": "^1.17.3",
     "express-flash": "^0.0.2",
     "dotenv": "^16.0.3",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^6.8.0"
   },
   "engines": {
     "node": "14.x"
