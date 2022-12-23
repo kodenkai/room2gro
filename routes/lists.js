@@ -15,7 +15,18 @@ router.post('/', (req,res) => {
   const list = new List({
     name: req.body.name
   })
-  res.send(req.body.name)
-})
+  list.save((err, newList) => {
+    if (err) {
+      console.log(err)
+      res.render('lists/new', {
+        list: list,
+        errorMessage: 'Error creating List. Try Again.'
+      })
+    } else {
+      //res.redirect(`lists/${newList.id}`)
+      res.redirect('lists')
+    }
+  }
+)})
 
 module.exports = router
