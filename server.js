@@ -1,6 +1,8 @@
+debugger;
 if (process.env.NODE_ENV != 'production') {
   require('dotenv').config
 }
+debugger;
 // init project
 var express = require('express');
 var ejs = require('ejs');
@@ -11,6 +13,7 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const initializePassport = require('./passport-config.js');
+debugger;
 initializePassport(passport, 
                    email => users.find(user => user.email === email),
                   id => users.find(user => user.id === id));
@@ -34,7 +37,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 app.get('/',(req, res)=>{
-  res.render('index.ejs', {name:'kyle'})
+  res.render('index.ejs', {name:req.body.first_name})
 });
 
 app.get('/login',(req, res)=>{
@@ -69,6 +72,7 @@ app.post('/register', async (req, res)=>{
 })
 
 app.post('/login', function(req, res) {
+  console.log('still working')
   debugger;
   passport.authenticate('local', {
     successRedirect: '/',
