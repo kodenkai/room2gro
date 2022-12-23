@@ -11,8 +11,9 @@ router.get('/new', (req,res) =>{
   res.render('lists/new', {list: new List() })
 })
   
-router.post('/', (req,res)=> {
-  res.send(req.body.name)
+router.post('/', (req,res) => {
+  console.log('hi')
+  res.send('req.body.lis')
 })
 
 module.exports = router
