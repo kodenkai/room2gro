@@ -11,7 +11,7 @@ router.get('/', async (req,res) => {
 router.get('/new', (req,res) =>{
 
 })
-  //add item
+  //create item
 router.post('/', async (req,res) => {
 
 })
