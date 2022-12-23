@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const List = require('../models/list')
 
+
+
 //all lists
 router.get('/', async (req,res) => { 
   let searchOptions = {}
@@ -39,10 +41,10 @@ router.post('/', async (req,res) => {
         list: list,
         errorMessage: 'Error creating List. Try Again.'
       })
-  }
+  }})
   
   router.get('/:id', (req,res) => { 
-  res.send('Show List ' + req.params.id)
+  res.send('View List ' + req.params.id)
 })
 
 /*router.get('/:id/edit', (req,res) => {
@@ -68,7 +70,7 @@ router.delete('/:id', (req,res) => {
       res.redirect(`lists`)
     }
   }
-)*/})
+)*/
 
 /*router.post('/', (req, res, next) => {
   const list = new List({
