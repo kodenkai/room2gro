@@ -54,8 +54,6 @@ app.post('/register', async (req, res)=>{
       resolve(hash)
     });
     })
-    //const hashedPassword = await bcrypt.hashed();
-    //console.log(hashedPassword);
     users.push({
       id: Date.now().toString(),
       first_name: req.body.first_name,
@@ -69,6 +67,7 @@ app.post('/register', async (req, res)=>{
   }
   console.log(users);
 })
+
 app.post('/login', passport.authenticate('local'), {
          successRedirect: '/',
   failureRedirect: '/login',

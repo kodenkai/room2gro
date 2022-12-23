@@ -8,6 +8,15 @@ function initialize(passport, getUserByEmail, getUserById) {
       return done(null, false, {message: 'No user with that email'});
     }
     try {
+      const compareResults = await new Promise((resolve, reject) => {
+    bcrypt.compare(password,user.password, function(err, hash) {
+      
+      if (err) reject(err)
+      resolve(hash)
+    } else {
+                   return done(null, user)
+                   });
+    })
       if (await bcrypt.compare(password, user.password)) {
         return done(null, user);
       } else {
