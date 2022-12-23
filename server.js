@@ -5,14 +5,21 @@ var bodyParser = require('body-parser');
 var app = express();
 const bcrypt = require('bcrypt');
 const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
 const initializePassport = require('/passport-config.js');
-initializePassport(passport);
+initializePassport(passport, 
+                   email => users.find(user => user.email === email));
 
 const users = [];
 // app.set('view engine', 'ejs');
 app.engine('html', ejs.__express);
 app.set('views', './views');
 app.set('view engine', 'ejs');
+app.use(flash())
+app.use(session({
+  secret: process.env.SESSION_SECRET;
+}));
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
