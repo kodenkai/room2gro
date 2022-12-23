@@ -1,19 +1,25 @@
 const express = require('express')
 const router = express.Router()
 const Item = require('../../models/item')
+const List = require('../../models/list')
 
 //all items
 router.get('/', async (req,res) => { 
-  try {
-    const items = await (Item)
-  } catch {
-    
-  }
+  res.send('All Items')
 })
 
 // New item
-router.get('/new', (req,res) =>{
-res.send('New items')
+router.get('/new', async (req,res) =>{
+try {
+    const lists = await List.find({})
+    const item = new Item()
+    res.render('lists/items/new', {
+      items: item,
+      lists: lists
+    })
+  } catch {
+    res.redirect('/lists')
+  }
 })
   //create item
 router.post('/', async (req,res) => {
