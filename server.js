@@ -10,7 +10,7 @@ const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index')
 const listRouter = require('./routes/lists')
-const itemRouter = require('./routes/items')
+const itemRouter = require('./routes/lists/items')
 
 /*const bcrypt = require('bcrypt');
 const passport = require('passport');

@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const List = require('../models/item')
+const Item = require('../models/item')
 
 //all items
-router.get('/items', async (req,res) => { 
+router.get('/', async (req,res) => { 
   res.send('All items')
 })
 
 // New item
-router.get('/items/new', (req,res) =>{
+router.get('/new', (req,res) =>{
 res.send('New items')
 })
   //create item
