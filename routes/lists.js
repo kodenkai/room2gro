@@ -11,7 +11,7 @@ router.get('/new', (req,res) =>{
   res.render('lists/new', {list: new List() })
 })
   
-router.post('/', (req,res) => {
+/*router.post('/', (req,res) => {
   const list = new List({
     name: req.body.name
   })
@@ -25,6 +25,21 @@ router.post('/', (req,res) => {
       })
     } else {
       //res.redirect(`lists/${newList.id}`)
+      res.redirect(`lists`)
+    }
+  }
+)})*/
+
+router.post('/', (req, res, next) => {
+  const list = new List({
+    name: req.body.name
+  })
+  console.log(list)
+  list.save((err, newList) => {
+    if (err) {
+      console.log(err)
+      return next(err) // Pass the error to the next middleware
+    } else {
       res.redirect(`lists`)
     }
   }
