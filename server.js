@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index')
 const listRouter = require('./routes/lists')
+const itemRouter = require('./routes/items')
 
 /*const bcrypt = require('bcrypt');
 const passport = require('passport');
@@ -65,6 +66,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use('/', indexRouter);
 app.use('/lists', listRouter);
+app.use('/lists/items', itemRouter);
 
 /*app.get('/login',(req, res)=>{
   res.render('login.ejs')
