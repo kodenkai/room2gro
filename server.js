@@ -69,6 +69,7 @@ app.post('/register', async (req, res)=>{
 })
 
 app.post('/login', function(req, res) {
+  debugger;
   passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',

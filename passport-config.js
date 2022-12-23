@@ -17,7 +17,7 @@ function initialize(passport, getUserByEmail, getUserById) {
       resolve(val)
     });
     })*/
-      
+      debugger;
       const compareResults = await new Promise((resolve, reject) => {
   bcrypt.compare(password, user.password, function(err, val) {
     if (err) {
