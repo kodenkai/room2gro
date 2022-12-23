@@ -15,6 +15,7 @@ router.post('/', (req,res) => {
   const list = new List({
     name: req.body.name
   })
+  console.log(list)
   list.save((err, newList) => {
     if (err) {
       console.log(err)
@@ -24,7 +25,7 @@ router.post('/', (req,res) => {
       })
     } else {
       //res.redirect(`lists/${newList.id}`)
-      res.redirect('lists')
+      res.redirect(`lists`)
     }
   }
 )})
