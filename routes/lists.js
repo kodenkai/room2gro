@@ -3,11 +3,17 @@ const router = express.Router()
 const List = require('../models/list')
 
 //all lists
-router.get('/', async (req,res) => {        
+router.get('/', async (req,res) => { 
+  let searchOptions = {}
+  if (req.query.name != null && req.query.name !== '') {
+    searchOptions.name = new RegExp(req.query.name, 'i')
+  }
   try {
-   const lists = await List.find({})
-   res.render('lists/index', {lists: lists})
- = } catch {
+   const lists = await List.find({searchOptions})
+   res.render('lists/index', {
+     lists: lists,
+   searchOptions: req.query})
+  } catch {
   res.redirect('/')
 }
   
