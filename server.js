@@ -1,11 +1,13 @@
-
 if (process.env.NODE_ENV != 'production') {
   require('dotenv').config
 }
 // init project
-var express = require('express');
-var ejs = require('ejs');
-const app = express();
+const express = require('express')
+const ejs = require('ejs')
+const app = express()
+const expressLayouts = require('express-ejs-layouts')
+
+const indexRouter = require('./routes/index')
 
 const bcrypt = require('bcrypt');
 const passport = require('passport');
@@ -19,7 +21,8 @@ initializePassport(passport,
 const users = [];
 // app.set('view engine', 'ejs');
 app.engine('html', ejs.__express);
-app.set('views', './views');
+app.set('views', __dirname +  './views');
+app.set()
 app.set('view engine', 'ejs');
 app.use(flash())
 app.use(session({
@@ -34,9 +37,7 @@ app.use(passport.session())
 app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 
-app.get('/',(req, res)=>{
-  res.render('index.ejs', {name : 'req.user.name'})
-});
+app.use('/', indexRouter);
 
 app.get('/login',(req, res)=>{
   res.render('login.ejs')
