@@ -39,6 +39,22 @@ router.post('/', async (req,res) => {
         errorMessage: 'Error creating List. Try Again.'
       })
   }
+  
+  router.get('/:id', (req,res) => { 
+  res.send('Show List ' + req.params.id)
+})
+
+router.get('/:id/edit', (req,res) => {
+  res.send('Edit List ' + req.params.id)
+})
+
+router.put('/:id', (req,res) => {
+  res.send('Update List ' + req.params.id)
+})
+
+router.delete('/:id', (req,res) => {
+  res.send('Delete List ' + req.params.id)
+})
   /*list.save((err, newList) => {
     if (err) {
       console.log(err)

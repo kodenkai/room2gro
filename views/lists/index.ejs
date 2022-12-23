@@ -13,5 +13,6 @@
 <br>
 <% lists.forEach(list => {%>
   <div><%= list.name %></div>
+    <a href="/lists/<%= list.id%>">View</a>
 <%  }) %>
 <a href="/lists/new">Create a New List</a>
