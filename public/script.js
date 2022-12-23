@@ -1,4 +1,6 @@
-document.querySelector('#push').onclick = function(){
+window.onload = function () {
+
+   var doFunction = function() {
     if(document.querySelector('#newtask input').value.length == 0){
         alert("Kindly Enter Task Name!!!!")
     }
@@ -22,4 +24,6 @@ document.querySelector('#push').onclick = function(){
             }
         }
     }
+     document.querySelector('#push').onclick = doFunction();
+}
 }
