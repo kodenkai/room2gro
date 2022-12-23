@@ -47,15 +47,15 @@ router.post('/', async (req,res) => {
   res.send('View List ' + req.params.id)
 })
 
-/*router.get('/:id/edit', (req,res) => {
+router.get('/:id/edit', (req,res) => {
   res.send('Edit List ' + req.params.id)
 })
 
-router.put('/:id', (req,res) => {
+router.put('/:id/update', (req,res) => {
   res.send('Update List ' + req.params.id)
 })
 
-router.delete('/:id', (req,res) => {
+router.delete('/:id/delete', (req,res) => {
   res.send('Delete List ' + req.params.id)
 })
   /*list.save((err, newList) => {
