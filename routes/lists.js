@@ -2,11 +2,18 @@ const express = require('express')
 const router = express.Router()
 const List = require('../models/list')
 
-router.get('/', (req,res) =>{
-  res.render('lists/index')
-  //res.send('hello')
+//all lists
+router.get('/', async (req,res) => {        
+  try {
+   const lists = await List.find({})
+   res.render('lists/index', {lists: lists})
+ = } catch {
+  res.redirect('/')
+}
+  
 })
 
+// New list
 router.get('/new', (req,res) =>{
   res.render('lists/new', {list: new List() })
 })
