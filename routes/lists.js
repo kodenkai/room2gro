@@ -12,8 +12,10 @@ router.get('/new', (req,res) =>{
 })
   
 router.post('/', (req,res) => {
-  console.log('hi')
-  res.send('req.body.lis')
+  const list = new List({
+    name: req.body.name
+  })
+  res.send(req.body.name)
 })
 
 module.exports = router

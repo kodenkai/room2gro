@@ -1,9 +1,8 @@
 <h2>
   New Grocery List
 </h2>
-<input>
 <form action="/lists" method="POST">
-  <% -include('_form_fields')%>
+  <%- include('_form_fields')%>
   <a href="/lists">Cancel</a>
   <button type=submit>Create new list</button>
 </form>
