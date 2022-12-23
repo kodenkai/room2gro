@@ -11,12 +11,22 @@ router.get('/new', (req,res) =>{
   res.render('lists/new', {list: new List() })
 })
   
-router.post('/', (req,res) => {
+router.post('/', async (req,res) => {
   const list = new List({
     name: req.body.name
   })
-  console.log(list)
-  list.save((err, newList) => {
+  try {
+    const newList = await list.save()
+    //res.redirect(`lists/${newList.id}`)
+      res.redirect(`lists`)
+    
+  } catch {
+    res.render('lists/new', {
+        list: list,
+        errorMessage: 'Error creating List. Try Again.'
+      })
+  }
+  /*list.save((err, newList) => {
     if (err) {
       console.log(err)
       res.render('lists/new', {
@@ -28,7 +38,7 @@ router.post('/', (req,res) => {
       res.redirect(`lists`)
     }
   }
-)})
+)*/})
 
 /*router.post('/', (req, res, next) => {
   const list = new List({
