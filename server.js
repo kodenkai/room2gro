@@ -29,12 +29,25 @@ app.use(expressLayouts)
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({limit: '10mb', extended: false }))
 
-const mongoose = require('mongoose')
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
-mongoose.set('strictQuery', false)
+
+const mongoose = require('mongoose');
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+const db = mongoose.connection;
+db.on('error', error => console.error(error));
+db.once('open', () => console.log('Connected to Mongoose'));
+
+
+/*const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://firstuser00:Ont3I8T56jaFLpxJ@cluster0.fd3woog.mongodb.net/?retryWrites=truemongodb+srv://firstuser00:Ont3I8T56jaFLpxJ@cluster0.fd3woog.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
 const db = mongoose.connection
 db.on('error', error => console.error(error))
-db.once('open', ()=> console.log('Connected to Mongoose'))
+db.once('open', ()=> console.log('Connected to Mongoose'))*/
 /*app.use(flash())
 app.use(session({
   secret: process.env.SESSION_SECRET,
