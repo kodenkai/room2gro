@@ -94,7 +94,6 @@ app.post('/login', function(req, res) {
 });*/
 
 //app.use(express.json());
-//app.use(express.static("public"));
 
 // Routes go here
 
