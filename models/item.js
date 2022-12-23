@@ -4,10 +4,15 @@ const itemSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
-  }
+  },
   qty: {
-  type: 
-}
+  type: Number
+},
+  createdAt: {
+    type: Date,
+    required: true,
+    default: Date.now
+  }
 })
 
 module.exports = mongoose.model('List', itemSchema)
