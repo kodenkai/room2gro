@@ -4,7 +4,11 @@ const Item = require('../../models/item')
 
 //all items
 router.get('/', async (req,res) => { 
-  res.send('All items')
+  try {
+    const items = await (Item)
+  } catch {
+    
+  }
 })
 
 // New item

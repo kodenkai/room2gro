@@ -6,7 +6,8 @@ const listSchema = new mongoose.Schema({
     required: true
   },
   currentList: {
-    type: Array,
+    type: [mongoose.Schema.Types.ObjectId],
+    ref:'Item'
   },
   createdAt: {
     type: Date,
