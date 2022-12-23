@@ -24,6 +24,7 @@ router.get('/new', (req,res) =>{
   res.render('lists/new', {list: new List() })
 })
   
+//Create list
 router.post('/', async (req,res) => {
   const list = new List({
     name: req.body.name
@@ -31,7 +32,7 @@ router.post('/', async (req,res) => {
   try {
     const newList = await list.save()
     //res.redirect(`lists/${newList.id}`)
-      res.redirect(`lists`)
+      res.redirect(`lists/`)
     
   } catch {
     res.render('lists/new', {
@@ -40,11 +41,11 @@ router.post('/', async (req,res) => {
       })
   }
   
-  /*router.get('/', (req,res) => { 
+  router.get('/:id', (req,res) => { 
   res.send('Show List ' + req.params.id)
 })
 
-router.get('/:id/edit', (req,res) => {
+/*router.get('/:id/edit', (req,res) => {
   res.send('Edit List ' + req.params.id)
 })
 
