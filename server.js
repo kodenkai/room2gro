@@ -6,7 +6,6 @@ var app = express();
 const bcrypt = require('bcrypt');
 
 const users = [];
-app.use(bodyParser.urlencoded({ extended: true }));
 // app.set('view engine', 'ejs');
 app.engine('html', ejs.__express);
 app.set('views', './views');
@@ -30,6 +29,7 @@ app.get('/register',(req, res)=>{
 app.post('/register', async (req, res)=>{
   try {
     const hashedPassword = await bcrypt.hashed(req.body.password, 10);
+    console.log("2");
     users.push({
       id: Date.now().toString(),
       first_name: req.body.first_name,
