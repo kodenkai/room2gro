@@ -8,6 +8,7 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 
 const indexRouter = require('./routes/index')
+const listRouter = require('./routes/lists')
 
 /*const bcrypt = require('bcrypt');
 const passport = require('passport');
@@ -46,6 +47,7 @@ app.use(express.urlencoded({extended: false}));
 */
 
 app.use('/', indexRouter);
+app.use('/lists', listRouter);
 
 /*app.get('/login',(req, res)=>{
   res.render('login.ejs')
