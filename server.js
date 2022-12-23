@@ -4,6 +4,9 @@ var ejs = require('ejs');
 var bodyParser = require('body-parser');
 var app = express();
 const bcrypt = require('bcrypt');
+const passport = require('passport');
+const initializePassport = require('/passport-config.js');
+initializePassport(passport);
 
 const users = [];
 // app.set('view engine', 'ejs');
