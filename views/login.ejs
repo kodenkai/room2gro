@@ -60,7 +60,9 @@
         </div>
       </nav>
     </header>
-    <% if (messages.error)></%>
+    <% if (messages.error) {%>
+     <%  messages.error %>
+       <%}%>
     <div class="text-light m-3">
       <form action="/login" method="POST">
         

@@ -10,9 +10,10 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
-const initializePassport = require('/passport-config.js');
+const initializePassport = require('./passport-config.js');
 initializePassport(passport, 
-                   email => users.find(user => user.email === email));
+                   email => users.find(user => user.email === email),
+                  id => users.find(user => user.id === id));
 
 const users = [];
 // app.set('view engine', 'ejs');
