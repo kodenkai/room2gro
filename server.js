@@ -24,6 +24,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname +  '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
+app.use(express.static('public'))
 /*app.use(flash())
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -35,7 +36,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(express.urlencoded({extended: false}));
-app.use(express.static('public'));*/
+*/
 
 app.use('/', indexRouter);
 
@@ -96,6 +97,6 @@ app.post('/login', function(req, res) {
 
 // Routes go here
 
-var listener = app.listen(process.env.PORT, function() {
+const listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
