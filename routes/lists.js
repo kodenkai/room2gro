@@ -11,7 +11,7 @@ router.get('/new', (req,res) =>{
   res.render('lists/new', {list: new List() })
 })
   
-/*router.post('/', (req,res) => {
+router.post('/', (req,res) => {
   const list = new List({
     name: req.body.name
   })
@@ -28,9 +28,9 @@ router.get('/new', (req,res) =>{
       res.redirect(`lists`)
     }
   }
-)})*/
+)})
 
-router.post('/', (req, res, next) => {
+/*router.post('/', (req, res, next) => {
   const list = new List({
     name: req.body.name
   })
@@ -43,6 +43,6 @@ router.post('/', (req, res, next) => {
       res.redirect(`lists`)
     }
   }
-)})
+)})*/
 
 module.exports = router
