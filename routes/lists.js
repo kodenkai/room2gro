@@ -9,7 +9,7 @@ router.get('/', async (req,res) => {
     searchOptions.name = new RegExp(req.query.name, 'i')
   }
   try {
-   const lists = await List.find({searchOptions})
+   const lists = await List.find(searchOptions)
    res.render('lists/index', {
      lists: lists,
    searchOptions: req.query})
