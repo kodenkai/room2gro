@@ -37,7 +37,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 app.get('/',(req, res)=>{
-  res.render('index.ejs', {name:req.body.first_name})
+  res.render('index.ejs', {name : 'req.user.name'})
 });
 
 app.get('/login',(req, res)=>{
@@ -72,7 +72,6 @@ app.post('/register', async (req, res)=>{
 })
 
 app.post('/login', function(req, res) {
-  console.log('still working')
   debugger;
   passport.authenticate('local', {
     successRedirect: '/',
